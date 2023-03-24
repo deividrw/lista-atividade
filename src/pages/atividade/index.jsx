@@ -5,6 +5,7 @@ export default function Atividade() {
   const [atividade, setAtividade] = useState("");
   const [date, setDate] = useState("");
   const [lancarAtividades, setLancarAtividades] = useState([]);
+  const [clear, setClear] = useState("");
 
   const handleAtividadeChange = (event) => {
     setAtividade(event.target.value);
@@ -19,20 +20,24 @@ export default function Atividade() {
     setDate("");
   };
 
-
-
+  // const handleClear = (event) => {
+  //   setClear(event.target.value);
+  //   index(null);
+  // };
 
   const handleLancarAtividade = (event) => {
     event.preventDefault();
-    if(atividade.trim() === '' || date.trim() === ''){
-        alert('Favor descrever atividade e data.');
-    }else{
-    setLancarAtividades([...lancarAtividades, { atividade, date }]);
-    handleReset();
-  }};
+    if (atividade.trim() === "" || date.trim() === "") {
+      alert("Favor descrever atividade e data.");
+    } else {
+      setLancarAtividades([...lancarAtividades, { atividade, date }]);
+      handleReset();
+    }
+  };
 
-
-
+  const handleExcluirAtividade = (index) => {
+    setLancarAtividades(lancarAtividades.filter((_, i) => i !== index));
+  };
 
   return (
     <div id="container">
@@ -63,25 +68,35 @@ export default function Atividade() {
             Limpar
           </button>
           <button type="submit">Lançar</button>
-
-          <table>
-            <thead>
-              <tr>
-                <th className="atividade">ATIVIDADE</th>
-                <th className="date">DATA</th>
-              </tr>
-            </thead>
-            <tbody>
-              {lancarAtividades.map((atividade, index) => (
-                <tr key={index}>
-                  <td className="atividade">{atividade.atividade}</td>
-                  <td className="date">{atividade.date}</td>
-                </tr>
-                
-              ))}
-            </tbody>
-          </table>
         </form>
+        <hr />
+
+        
+        <table>
+         
+          <thead>
+            <tr>
+              
+              <th>ATIVIDADE</th>
+
+              <th>DATA</th>
+
+              <th>ACTiON</th>
+              
+            </tr>
+            
+          </thead>
+          <tbody>
+            {lancarAtividades.map((atividade, index) => (
+              <tr key={index}>
+                
+                <td className="atividade">{atividade.atividade}</td>
+                <td className="date">{atividade.date}</td>
+                <td><button onClick={() => handleExcluirAtividade(index)}>EXCLUIR</button></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

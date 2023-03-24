@@ -1,52 +1,75 @@
-#container{
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  display: flex;
+  margin: 10px 10px;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  border: 2px solid #4b0082;
+  border-radius: 10px;
+  background-color: #cebadc;
+  cursor: auto;
+}
+
+button {
+  display: inline;
+  margin: 50px;
+  height: 40px;
+  width: 100px;
+  border: 2px solid #4b0082;
+  background-color: #cebadc;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btnTd {
+  position: relative;
+  display: inline;
+  margin: 50px;
+  height: 40px;
+  width: 100px;
+  border: 2px solid #4b0082;
+  background-color: #cebadc;
+  border-radius: 10px;
+  cursor: pointer;
+  right: 160px;
+}
+
+table {
+  width: 700px;
+}
+
+table button{
+    margin: 0;
+}
+
+thead,tbody{
+    width: 400px;
+}
+
+tr {
     display: flex;
-    justify-content: center;   
+    justify-content: space-between;
 }
 
-
-input{
-    display: flex;
-    margin: 10px 10px;
-    align-items: center;
-    width: 100%;
-    height: 20px;
-    border: 2px solid #4B0082;
-    border-radius: 10px;
-    background-color: #cebadc;
-    cursor: auto ;
+th {
+  display: flex;
+  margin-left: 0px;
 }
 
-
-button{
-    display: inline;
-    margin: 50px;
-    height: 40px;
-    width: 100px;
-    border: 2px solid #4B0082;
-    background-color: #cebadc;
-    border-radius: 10px;
-    cursor: pointer;
+.atividade {
+  position: relative;
 }
 
-table{
-    
-    justify-content: center;
-    
-}
-
-.date{
-    display: flex;
-    margin-left: 200px;
-    
-}
-
-.atividade{
-    position: relative;
-}
-
-td{
-    position: relative;
-    color: #fff;
-    font-size: larger; 
-    
+td {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  color: #fff;
+  font-size: larger;
+  margin-top: 10px;
 }
